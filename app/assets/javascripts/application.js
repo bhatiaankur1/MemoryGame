@@ -122,23 +122,33 @@ for(i=0;i < gridsize;i++)
 	{
 	if(level == "1")
 	{
-		$("#"+(i*gridsize+j).toString()).addClass("closedfour");
+	//	$("#"+(i*gridsize+j).toString()).addClass("closedfour");
+			give_new_classes(i,gridsize,j, "closedfour")
 		htmlent = htmlentity+parseInt(randomArr[(i*gridsize+j)])*5;
 	}
 	else if(level == "2")
-	{
-		$("#"+(i*gridsize+j).toString()).addClass("closed");
+	{	give_new_classes(i,gridsize,j, "closed")
+		//$("#"+(i*gridsize+j).toString()).addClass("closed");
 		htmlent = htmlentity+parseInt(randomArr[(i*gridsize+j)])*5;
 	}
 	else
 	{
-		$("#"+(i*gridsize+j).toString()).addClass("closed");
+		give_new_classes(i,gridsize,j, "closedfour")
+		//$("#"+(i*gridsize+j).toString()).addClass("closed");
 		htmlent = htmlentity+parseInt(randomArr[(i*gridsize+j)]);
 	}
 	$("#"+(i*gridsize+j).toString()).html("&#"+htmlent+"&#"+htmlent)
 	}
 }	
 }
+
+function td_index(i,gridsize,j){
+  return i*gridsize+j;
+  }
+function give_new_classes(i,gridsize,j, class_name) {
+	$("#"+(i*gridsize+j).toString()).addClass("closed");
+}
+
 function checkvalues()
 {
 	flagclicked = false;
